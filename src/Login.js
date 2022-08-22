@@ -18,7 +18,7 @@ const Login = () => {
                     username,
                     password,
                 }),
-                credentials : "same-origin"
+                credentials : "include"
             });
             const data = await response.json();
             if(data.error){
