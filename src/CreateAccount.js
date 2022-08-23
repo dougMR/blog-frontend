@@ -1,18 +1,15 @@
 import { useState } from "react";
-import { useNavigate, Link, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import APIUrl from "./APIUrl";
-const Login = () => {
+const CreateAccount = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
-    const isNewUser = searchParams.get("newUser");
-
-    const login = async (evt) => {
+    const createAccount = async (evt) => {
         evt.preventDefault();
         try {
-            const response = await fetch(`${APIUrl}/login`, {
+            const response = await fetch(`${APIUrl}/create-account`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -28,20 +25,19 @@ const Login = () => {
                 setError(data.error);
             } else {
                 setError("");
-                // redirect to Admin, login successful
-                navigate("/admin");
+                // redirect to Admin, createAccount successful
+                navigate("/login?newUser=true");
             }
             console.log(data);
         } catch (error) {
-            setError(`Login API call failed. ERROR: ${error}`);
+            setError(`/create-account API call failed. ERROR: ${error}`);
             console.error(error);
         }
     };
     return (
         <div>
-            <h1>Login</h1>
-            {isNewUser && <p>Your account has been created. Please log in.</p>}
-            <form onSubmit={login}>
+            <h1>Create Account</h1>
+            <form onSubmit={createAccount}>
                 <div className="mb-3">
                     <label htmlFor="username" className="form-label">
                         Username
@@ -75,12 +71,11 @@ const Login = () => {
                 </div>
                 <p style={{ color: "red" }}>{error}</p>
                 <button type="submit" className="btn btn-primary">
-                    Login
+                    Create Account
                 </button>
-                <Link to="/create-account" className="btn btn-primary" style={{marginLeft: "1em"}}>Create New Account</Link>
             </form>
         </div>
     );
 };
 
-export default Login;
+export default CreateAccount;

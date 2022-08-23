@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
+import CreateAccount from "./CreateAccount";
 import Admin from "./Admin";
 import PostEditor from "./PostEditor";
 import Author from "./Author";
@@ -23,6 +24,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/login" element={<Login />} />
+                            <Route path="/create-account" element={<CreateAccount />} />
                             <Route path="/admin" element={<Admin />} />
                             <Route path="/author/:id" element={<Author />} />
                             <Route
