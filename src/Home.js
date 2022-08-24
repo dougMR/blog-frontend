@@ -21,7 +21,7 @@ const Home = () => {
         getAuthors();
     }, []);
     return (
-        <div>
+        <div className="component-body">
             <h1>HOME</h1>
             <div id="nav-links">
                 <Link to="/login">Login</Link>

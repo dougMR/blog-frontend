@@ -78,6 +78,7 @@ const Login = () => {
                     Login
                 </button>
                 <Link to="/create-account" className="btn btn-primary" style={{marginLeft: "1em"}}>Create New Account</Link>
+                <Link to="/reset-password" className="btn btn-primary" style={{marginLeft: "1em"}}>Forgot Password</Link>
             </form>
         </div>
     );

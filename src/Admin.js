@@ -44,7 +44,7 @@ const Admin = () => {
     };
 
     return (
-        <div>
+        <div className="component-body">
             <h1>Admin</h1>
 
             <div id="nav-links">

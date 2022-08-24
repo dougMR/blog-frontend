@@ -4,6 +4,7 @@ import APIUrl from "./APIUrl";
 const CreateAccount = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [emailAddress, setEmailAddress] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const createAccount = async (evt) => {
@@ -17,6 +18,7 @@ const CreateAccount = () => {
                 body: JSON.stringify({
                     username,
                     password,
+                    emailAddress
                 }),
                 credentials : "include"
             });
@@ -49,6 +51,20 @@ const CreateAccount = () => {
                         value={username}
                         onChange={(evt) => {
                             setUsername(evt.target.value);
+                        }}
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="email-address" className="form-label">
+                        Email Address
+                    </label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="email-address"
+                        value={emailAddress}
+                        onChange={(evt) => {
+                            setEmailAddress(evt.target.value);
                         }}
                     />
                 </div>

@@ -6,6 +6,8 @@ import CreateAccount from "./CreateAccount";
 import Admin from "./Admin";
 import PostEditor from "./PostEditor";
 import Author from "./Author";
+import ResetPassword from "./ResetPassword";
+import SetPassword from "./SetPassword";
 
 function App() {
     return (
@@ -27,6 +29,8 @@ function App() {
                             <Route path="/create-account" element={<CreateAccount />} />
                             <Route path="/admin" element={<Admin />} />
                             <Route path="/author/:id" element={<Author />} />
+                            <Route path="/reset-password" element={<ResetPassword />} />
+                            <Route path="/set-password" element={<SetPassword />} />
                             <Route
                                 path="/admin/post-editor/:id"
                                 element={<PostEditor />}
