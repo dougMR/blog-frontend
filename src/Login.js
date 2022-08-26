@@ -8,6 +8,7 @@ const Login = () => {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const isNewUser = searchParams.get("newUser");
+    const passwordHasBeenReset = searchParams.get("passwordReset");
 
     const login = async (evt) => {
         evt.preventDefault();
@@ -41,6 +42,9 @@ const Login = () => {
         <div>
             <h1>Login</h1>
             {isNewUser && <p>Your account has been created. Please log in.</p>}
+            {passwordHasBeenReset && (
+				<p>Your password has been reset. Give it a spin, log in.</p>
+			)}
             <form onSubmit={login}>
                 <div className="mb-3">
                     <label htmlFor="username" className="form-label">

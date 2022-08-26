@@ -6,6 +6,7 @@ import APIUrl from "./APIUrl";
 const Admin = () => {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
+    const [currentUser, setCurrentUser] = useState(null);
     // const [log,setLog] = useState("");
     useEffect(() => {
         const checkLoginStatus = async () => {
@@ -15,6 +16,7 @@ const Admin = () => {
             const data = await response.json();
             if (data.isLoggedIn) {
                 // you're fine
+                setCurrentUser(data.user);
                 getPosts();
             } else {
                 // not logged in, can't be on this page
@@ -74,7 +76,7 @@ const Admin = () => {
                 </thead>
                 <tbody>
                     {posts.map((post) => {
-                        return (
+                        return currentUser.id === post.author_id ? (
                             <tr key={post.id}>
                                 <td>
                                     <h6>{post.title}</h6>
@@ -103,7 +105,7 @@ const Admin = () => {
                                     </button>
                                 </td>
                             </tr>
-                        );
+                            ) : ''
                     })}
                 </tbody>
             </table>

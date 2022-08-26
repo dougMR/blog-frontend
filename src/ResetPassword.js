@@ -2,6 +2,7 @@ import APIUrl from "./APIUrl";
 import { useState } from "react";
 const ResetPassword = () => {
     const [emailAddress, setEmailAddress] = useState("");
+    const [successMessage,setSuccessMessage] = useState(null);
     const sendPasswordResetEmail = async (evt) => {
         evt.preventDefault();
         console.log("calling /reset-password...");
@@ -16,12 +17,15 @@ const ResetPassword = () => {
         });
         const data  = await response.json();
         console.log("data: ",data);
+        // Print the success on-screen!
+        setSuccessMessage(data.message);
     };
 
     return (
         <div>
             <h1>Reset Password</h1>
-            <form onSubmit={sendPasswordResetEmail}>
+            {successMessage ? (<p>{successMessage}</p>) : (
+                <form onSubmit={sendPasswordResetEmail}>
                 <label htmlFor="email">Email Address</label>
                 <input
                     type="email"
@@ -35,6 +39,7 @@ const ResetPassword = () => {
                 />
                 <button className="btn btn-primary" style={{marginTop: "1em"}} type="submit">Send Email</button>
             </form>
+            )}
         </div>
     );
 };
