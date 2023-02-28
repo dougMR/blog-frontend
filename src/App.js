@@ -20,7 +20,7 @@ function App() {
                         to="/"
                         className="home-link"
                     >
-                        <span>my</span>📣<span>BLOG</span>
+                        <span>my</span>📣<span>BLOG :)</span>
                     </Link>
                     
                         <Routes>
