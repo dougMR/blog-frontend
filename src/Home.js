@@ -1,20 +1,24 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import APIUrl from "./APIUrl";
+// console.log("APIUrl: ",APIUrl);
 const Home = () => {
     const [posts, setPosts] = useState([]);
     const [authors, setAuthors] = useState([]);
     useEffect(() => {
         const getPosts = async () => {
+            // console.log('getPosts()',`APIUrl/posts`,`${APIUrl}/posts`);
             const response = await fetch(`${APIUrl}/posts`);
+            // console.log('response: ',response);
             const data = await response.json();
             setPosts(data.posts);
         };
         getPosts();
 
         const getAuthors = async () => {
+            // console.log('APIUrl/authors: ',`${APIUrl}/authors`);
             const response = await fetch(`${APIUrl}/authors`);
-            console.log("response: ", response);
+            // console.log("response: ", response);
             const data = await response.json();
             setAuthors(data.authors);
         };

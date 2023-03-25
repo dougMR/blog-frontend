@@ -7,13 +7,13 @@ const Author = () => {
     const [posts, setPosts] = useState([]);
     const [author, setAuthor] = useState(null);
     const [authors, setAuthors] = useState([]);
-    console.log(params.id);
+    // console.log(params.id);
 
     useEffect(() => {
         const getPostsByAuthor = async () => {
             const results = await fetch(`${APIUrl}/author/${params.id}`);
             const data = await results.json();
-            console.log("data: ", data);
+            // console.log("data: ", data);
             setPosts(data.posts);
             setAuthor(data.user.username);
         };
@@ -22,7 +22,7 @@ const Author = () => {
     useEffect(() => {
         const getAuthors = async () => {
             const response = await fetch(`${APIUrl}/authors`);
-            console.log("response: ", response);
+            // console.log("response: ", response);
             const data = await response.json();
             setAuthors(data.authors);
         };

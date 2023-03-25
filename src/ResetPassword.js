@@ -5,7 +5,7 @@ const ResetPassword = () => {
     const [successMessage,setSuccessMessage] = useState(null);
     const sendPasswordResetEmail = async (evt) => {
         evt.preventDefault();
-        console.log("calling /reset-password...");
+        // console.log("calling /reset-password...");
         const response = await fetch(`${APIUrl}/reset-password`, {
             method: "POST",
             headers: {
@@ -16,7 +16,7 @@ const ResetPassword = () => {
             }),
         });
         const data  = await response.json();
-        console.log("data: ",data);
+        // console.log("data: ",data);
         // Print the success on-screen!
         setSuccessMessage(data.message);
     };

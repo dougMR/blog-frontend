@@ -7,7 +7,7 @@ const PostEditor = () => {
     const [content, setContent] = useState("");
     const navigate = useNavigate();
     const params = useParams();
-    console.log(params);
+    // console.log(params);
     const postPost = async (evt) => {
         evt.preventDefault();
         if(params.id==="new"){
@@ -43,7 +43,7 @@ const PostEditor = () => {
                 const data = await response.json();
                 setContent(data.post.content);
                 setTitle(data.post.title);
-                console.log("data: ", data);
+                // console.log("data: ", data);
             } else {
                 setContent("");
                 setTitle("");

@@ -32,7 +32,7 @@ const Login = () => {
                 // redirect to Admin, login successful
                 navigate("/admin");
             }
-            console.log(data);
+            // console.log(data);
         } catch (error) {
             setError(`Login API call failed. ERROR: ${error}`);
             console.error(error);
